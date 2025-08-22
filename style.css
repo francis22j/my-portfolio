@@ -1,3 +1,192 @@
-main { 
-    background-image: url(images/background.jpg);
+html {
+    scroll-behavior: smooth;
 }
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    z-index: 1000;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(images/brandi-redd-aJTiW00qqtI-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* navigation */
+#nav-container {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+}
+#nav-container li a {
+
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 10);
+    border-radius: 20px;
+    padding: 10px 24px;
+    color: #2E2E2E;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    box-shadow: 10px 5px 10px rgba(0,0,0,0.1);  
+    margin-bottom: 50px;
+}
+#nav-container li a:hover {
+    animation: bounce 0.5s;
+}
+@keyframes bounce {
+    0% {transform: translateY(0%);}
+    30% {transform: translateY(-20px);}
+    50% {transform: translateY(0);}
+    70% {transform: translateY(-10px);}
+    100% {transform: translateY(0);}
+}
+/* home page */
+#home-page {
+    height: 870px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+#home-page img {
+    height: 170px;
+    width: 170px;
+    object-fit: cover; /* the photo will not squeezed */
+    border: 5px solid #e0e7ff;
+    box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    justify-self: center;
+    align-self: center;   /* centers vertically */
+    transition: transform 0.3s ease;
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+#home-page h2 {
+    color: #2E2E2E;
+    font-size: 35px;
+    font-weight: bold;
+}
+#home-page img:hover {
+    transform: scale(1.05);
+    box-shadow: 20px 30px 40px rgba(0, 0, 0, 0.25);
+
+}
+#home-page h1 {
+    color: #2E2E2E;
+    font-size: 70px;
+    margin: 0;
+    text-align: center;
+}
+#home-page p {
+    margin-top: 2%;
+    justify-self: center;
+    font-size: 20px;
+    font-weight: lighter;
+}
+/* gallery */
+#art h1 {
+    color: #2E2E2E;
+    justify-self: center;
+    font-size: 100px;
+}
+#art-container {
+    height: auto;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 20px;
+     justify-content: center; /* 🔹 centers the whole grid horizontally */
+    align-content: center; /* 🔹 centers vertically if container has extra height */
+    margin: 0 auto;   /* 🔹 makes sure container is centered inside page */
+}
+.item1 {
+    background-size: cover;
+    background-image: url(portrait/firstportrait.jpg);
+    border-radius: 20px;
+
+    border: 2px solid;
+    grid-area: 1 / 1 / 4 / 2;
+} 
+.item2 {
+    background-size: cover;
+    background-image: url(portrait/thirdportrait.jpg);
+    border-radius: 20px;
+    border: 2px solid;
+    grid-area: 1 / 2 / 3 / 4;
+}
+.item3 {
+    background-size: cover;
+    background-image: url(portrait/secondportrait.jpg);
+    border-radius: 20px;
+    height: 400px;
+    width: 300px;
+    border: 2px solid;
+    grid-area: 1 / 4 / 3 / 5;
+} 
+.item4 {
+    background-size: cover;
+    background-image: url(portrait/fourthportrait.jpg);
+    border-radius: 20px;
+    border: 2px solid;
+    grid-area: 3 / 2 / 5 / 3;
+} 
+.item5 {
+    background-size: cover;
+    background-image: url(portrait/fifthportrait.jpg);
+    border-radius: 20px;
+    border: 2px solid;
+    grid-area: 3 / 3 / 5 / 4;
+} 
+.item6 {
+    background-size: cover;
+    background-image: url(portrait/sixthportrait.jpg);
+    border-radius: 20px;
+    border: 2px solid;
+    grid-area: 3 / 4 / 5 / 4;
+} 
+#art-container li {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    transition: transform 0.3s ease, box-shadow 0.3s  ease; 
+}
+
+#art-container li:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes appear{
+    from {
+        opacity: 0;
+        scale: 0.5;
+        transform: translateX(-100px);
+
+    } to {
+        opacity: 1;
+        scale: 1;
+        transform: translateX(0px);
+
+    }
+}
+
+/* about */
+#about-me h1 {
+    color: #2E2E2E;
+    justify-self: center;
+    font-size: 100px;
+}
+
