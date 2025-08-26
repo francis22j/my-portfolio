@@ -1,32 +1,42 @@
+/* Reset & Base */
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 html {
     scroll-behavior: smooth;
 }
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: #f4f4f9; /* cleaner background */
+    color: #2E2E2E;
+    line-height: 1.6;
+}
+
+/* Layout container (keeps things centered & neat) */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem;
+}
+
+/* Navigation */
 nav {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%; 
+    width: 100%;
     z-index: 1000;
 }
-body {
-    margin: 0;
-    padding: 0;
-    background-image: url(images/brandi-redd-aJTiW00qqtI-unsplash.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 100vh;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-/* navigation */
 #nav-container {
     list-style: none;
     display: flex;
     justify-content: center;
-    align-content: center;
-    gap: 20px;
+    align-items: center;
+    gap: 30px;
+    padding: 1rem 0;
 }
 #nav-container li a {
 
@@ -51,142 +61,166 @@ body {
     70% {transform: translateY(-10px);}
     100% {transform: translateY(0);}
 }
-/* home page */
+
+/* Hero Section */
 #home-page {
-    height: 870px;
-    width: auto;
+
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    
+    padding-top: 100px; /* space for fixed nav */
+    text-align: center;
+    background-image: url(images/brandi-redd-aJTiW00qqtI-unsplash.jpg);
+    background-size: 120% 120%;
+    background-repeat: no-repeat;
+    color: #fff;
+    animation: gradientBG 15s ease infinite;
+    overflow: hidden;
 }
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
 #home-page img {
     height: 170px;
     width: 170px;
-    object-fit: cover; /* the photo will not squeezed */
-    border: 5px solid #e0e7ff;
-    box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.25);
     border-radius: 50%;
-    justify-self: center;
-    align-self: center;   /* centers vertically */
-    transition: transform 0.3s ease;
-    margin-top: 100px;
+    object-fit: cover;
+    border: 5px solid #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     margin-bottom: 20px;
-}
-#home-page h2 {
-    color: #2E2E2E;
-    font-size: 35px;
-    font-weight: bold;
+    transition: transform 0.3s ease;
 }
 #home-page img:hover {
     transform: scale(1.05);
-    box-shadow: 20px 30px 40px rgba(0, 0, 0, 0.25);
-
+}
+#home-page h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
 }
 #home-page h1 {
-    color: #2E2E2E;
-    font-size: 70px;
-    margin: 0;
-    text-align: center;
+    font-size: 48px;
+    margin-bottom: 15px;
 }
 #home-page p {
-    margin-top: 2%;
     justify-self: center;
-    font-size: 20px;
-    font-weight: lighter;
+    font-size: 18px;
+    max-width: 600px;
 }
-/* gallery */
+
+/* Gallery */
+#art {
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
 #art h1 {
-    color: #2E2E2E;
-    justify-self: center;
-    font-size: 100px;
-}
-#art-container {
-    height: auto;
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(4, 300px);
-    grid-template-rows: repeat(5, 1fr);
-    gap: 20px;
-     justify-content: center; /* 🔹 centers the whole grid horizontally */
-    align-content: center; /* 🔹 centers vertically if container has extra height */
-    margin: 0 auto;   /* 🔹 makes sure container is centered inside page */
-}
-.item1 {
-    background-size: cover;
-    background-image: url(portrait/firstportrait.jpg);
-    border-radius: 20px;
-
-    border: 2px solid;
-    grid-area: 1 / 1 / 4 / 2;
-} 
-.item2 {
-    background-size: cover;
-    background-image: url(portrait/thirdportrait.jpg);
-    border-radius: 20px;
-    border: 2px solid;
-    grid-area: 1 / 2 / 3 / 4;
-}
-.item3 {
-    background-size: cover;
-    background-image: url(portrait/secondportrait.jpg);
-    border-radius: 20px;
-    height: 400px;
-    width: 300px;
-    border: 2px solid;
-    grid-area: 1 / 4 / 3 / 5;
-} 
-.item4 {
-    background-size: cover;
-    background-image: url(portrait/fourthportrait.jpg);
-    border-radius: 20px;
-    border: 2px solid;
-    grid-area: 3 / 2 / 5 / 3;
-} 
-.item5 {
-    background-size: cover;
-    background-image: url(portrait/fifthportrait.jpg);
-    border-radius: 20px;
-    border: 2px solid;
-    grid-area: 3 / 3 / 5 / 4;
-} 
-.item6 {
-    background-size: cover;
-    background-image: url(portrait/sixthportrait.jpg);
-    border-radius: 20px;
-    border: 2px solid;
-    grid-area: 3 / 4 / 5 / 4;
-} 
-#art-container li {
-    animation: appear linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-    transition: transform 0.3s ease, box-shadow 0.3s  ease; 
+  font-size: 36px;
+  margin-bottom: 2rem;
+  color: #2E2E2E;
 }
 
-#art-container li:hover {
+.art-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* responsive */
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.art-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.art-grid img:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-@keyframes appear{
-    from {
-        opacity: 0;
-        scale: 0.5;
-        transform: translateX(-100px);
 
-    } to {
+/* About Me */
+#about-me {
+    padding: 5rem 2rem;
+    text-align: center;
+}
+#about-me h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+#about-me img {
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+#about-me img:hover {
+    transform: scale(1.05);
+}
+.about-text {
+    font-size: 18px;
+    max-width: 700px;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1.5s ease forwards;
+}
+@keyframes fadeUp {
+    to {
         opacity: 1;
-        scale: 1;
-        transform: translateX(0px);
-
+        transform: translateY(0);
     }
 }
 
-/* about */
-#about-me h1 {
-    color: #2E2E2E;
-    justify-self: center;
-    font-size: 100px;
+/* Pricing */
+#pricing {
+    padding: 5rem 2rem;
+    text-align: center;
+}
+#pricing h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+#pricing table {
+    margin: auto;
+    border-collapse: collapse;
+    width: 80%;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+#pricing th, #pricing td {
+    border: 1px solid #ddd;
+    padding: 12px 16px;
+}
+#pricing th {
+    background: #000000;
+    color: #fff;
+    font-weight: bold;
 }
 
+/* Footer */
+footer {
+    background: #000000;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #home-page h1 { font-size: 32px; }
+    #home-page h2 { font-size: 22px; }
+    #art h1, #about-me h1, #pricing h1 { font-size: 28px; }
+}
