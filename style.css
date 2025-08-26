@@ -1,4 +1,3 @@
-/* Reset & Base */
 * {
 
     margin: 0;
@@ -10,19 +9,17 @@ html {
 }
 body {
     font-family: 'Poppins', Arial, sans-serif;
-    background: #f4f4f9; /* cleaner background */
+    background: #f4f4f9;
     color: #2E2E2E;
     line-height: 1.6;
 }
 
-/* Layout container (keeps things centered & neat) */
 .container {
     max-width: 1100px;
     margin: auto;
     padding: 2rem;
 }
 
-/* Navigation */
 nav {
     position: fixed;
     top: 0;
@@ -62,7 +59,7 @@ nav {
     100% {transform: translateY(0);}
 }
 
-/* Hero Section */
+/* Home Section */
 #home-page {
 
     min-height: 100vh;
@@ -70,7 +67,7 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 100px; /* space for fixed nav */
+    padding-top: 100px; 
     text-align: center;
     background-image: url(images/brandi-redd-aJTiW00qqtI-unsplash.jpg);
     background-size: 120% 120%;
@@ -126,7 +123,7 @@ nav {
 
 .art-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* responsive */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   max-width: 1200px;
   margin: auto;
